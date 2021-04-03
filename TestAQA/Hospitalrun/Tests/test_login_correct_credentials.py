@@ -4,7 +4,7 @@ from Hospitalrun.Pages.LoginPage import LoginPage
 from Hospitalrun.Locators.locators import Locators
 
 
-driver = webdriver.Chrome(executable_path="Chrome_executable_path")
+driver = webdriver.Chrome(executable_path=Locators.Chrome_executable_path)
 driver.implicitly_wait(10)
 driver.maximize_window()
 
