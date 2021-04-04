@@ -1,26 +1,19 @@
 from selenium import webdriver
-import time
-from Hospitalrun.Pages.LoginPage import LoginPage
-from Hospitalrun.Pages.SitePages import SitePages
+from Hospitalrun.Pages.HomePage import HomePage
 from Hospitalrun.Locators.locators import Locators
 
 
-driver = webdriver.Chrome(executable_path=Locators.Chrome_executable_path)
-driver.implicitly_wait(10)
-driver.maximize_window()
+home = HomePage(webdriver)
 
-driver.get(Locators.test_site)
-login = LoginPage(driver)
-login.enter_username(Locators.test_username_true)
-login.enter_password(Locators.test_password_true)
-login.click_login()
-time.sleep(2)
+home.setup()
+home.enter_username(Locators.test_username_true)
+home.enter_password(Locators.test_password_true)
+home.click_login()
 
-sitepages = SitePages(driver)
-sitepages.click_setting()
-sitepages.click_logout()
-time.sleep(2)
+home.click_setting()
+home.click_logout()
 
-driver.close()
-driver.quit()
+home.logout_check()
+
+home.teardown()
 print("LogOut Test Completed")

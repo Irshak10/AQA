@@ -1,29 +1,32 @@
 from selenium import webdriver
 import time
-from Hospitalrun.Pages.LoginPage import LoginPage
-from Hospitalrun.Pages.SitePages import SitePages
+from Hospitalrun.Pages.MedicationPage import MedicationPage
 from Hospitalrun.Locators.locators import Locators
 
+medication = MedicationPage(webdriver.Chrome)
 
-driver = webdriver.Chrome(executable_path=Locators.Chrome_executable_path)
-driver.implicitly_wait(10)
-driver.maximize_window()
+medication.setup()
+medication.enter_username(Locators.test_username_true)
+medication.enter_password(Locators.test_password_true)
+medication.click_login()
 
-driver.get(Locators.test_site)
-login = LoginPage(driver)
-login.enter_username(Locators.test_username_true)
-login.enter_password(Locators.test_password_true)
-login.click_login()
 time.sleep(2)
 
-medication = SitePages(driver)
+
 medication.click_medications()
-medication.check_all_medication_buttons()
+medication.request_check()
+medication.completed_check()
+medication.new_request_check()
+medication.return_check()
+medication.new_request_click()
+time.sleep(2)
 
-time.sleep(5)
+medication.create_new_medication()
 
-driver.close()
-driver.quit()
-print("Correct Login Test Completed")
+time.sleep(2)
+
+medication.teardown()
+
+print("Correct 4th Test Completed")
 
 

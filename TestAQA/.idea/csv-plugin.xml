@@ -10,7 +10,28 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\Hospitalrun\Locators\locators.py">
+          <value>
+            <Attribute>
+              <option name="separator" value=":" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\Hospitalrun\Pages\HomePage.py">
+          <value>
+            <Attribute>
+              <option name="separator" value=":" />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\Hospitalrun\Pages\LoginPage.py">
+          <value>
+            <Attribute>
+              <option name="separator" value=":" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\Hospitalrun\Pages\MedicationPage.py">
           <value>
             <Attribute>
               <option name="separator" value=":" />
@@ -42,6 +63,13 @@
           <value>
             <Attribute>
               <option name="separator" value=":" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\Hospitalrun\Tests\test_login_correct_credentials.py">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
             </Attribute>
           </value>
         </entry>
