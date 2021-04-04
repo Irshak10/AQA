@@ -18,13 +18,14 @@ class LoginPage(object):
         self.medication_completed_button_link_text = Locators.medication_completed_button_link_text
         self.medication_new_request_button_link_text = Locators.medication_new_request_button_link_text
         self.medication_return_button_link_text = Locators.medication_return_button_link_text
-        self.patient_field_css = Locators.patient_field_css
 
     def setup(self):
         self.driver = webdriver.Chrome(executable_path=Locators.Chrome_executable_path)
         self.driver.implicitly_wait(10)
         self.driver.maximize_window()
         self.driver.get(Locators.test_site)
+        options = webdriver.ChromeOptions()
+        options.add_experimental_option("excludeSwitches", ["ignore-certificate-errors"])
         print("Setup is Done")
 
     def teardown(self):
