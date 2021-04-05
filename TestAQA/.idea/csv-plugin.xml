@@ -17,6 +17,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\Hospitalrun\Pages\BasePage.py">
+          <value>
+            <Attribute>
+              <option name="separator" value=":" />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\Hospitalrun\Pages\HomePage.py">
           <value>
             <Attribute>
@@ -60,6 +67,13 @@
           </value>
         </entry>
         <entry key="\Hospitalrun\Tests\login_with_correct_credentials.py">
+          <value>
+            <Attribute>
+              <option name="separator" value=":" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\Hospitalrun\Tests\test_4_tasks.py">
           <value>
             <Attribute>
               <option name="separator" value=":" />
