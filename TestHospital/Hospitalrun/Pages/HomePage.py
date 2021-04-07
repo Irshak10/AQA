@@ -9,6 +9,7 @@ logout_link_text = "Logout"
 class HomePage(BasePage):
 
     def click_setting(self):
+        print(type(self.driver), self.driver)
         self.driver.find_element_by_css_selector(setting_css_selector).click()
 
     def click_logout(self):

@@ -1,6 +1,8 @@
 from Hospitalrun.Pages.BasePage import BasePage
 
-
+#
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium import webdriver
 # Locators, Login Page object
 
 test_username_true = "hr.doctor@hospitalrun.io"
@@ -18,6 +20,15 @@ logout_check_text = "h2.form-signin-heading"
 
 
 class LoginPage(BasePage):
+
+#
+
+    def setup(self):
+        self.driver = webdriver.Chrome(ChromeDriverManager().install())
+        self.driver.implicitly_wait(10)
+        self.driver.maximize_window()
+        self.driver.get("http://demo.hospitalrun.io/")
+        print("Setup is Done")
 
     def enter_username_true(self):
         self.driver.find_element_by_id(username_textbox_id).clear()
@@ -40,7 +51,9 @@ class LoginPage(BasePage):
         print("The password field is filled")
 
     def click_login(self):
+        print(type(self.driver), self.driver)
         self.driver.find_element_by_css_selector(login_button_css_selector).click()
+        print(type(self.driver), self.driver)
 
     def login_check(self):
         text = self.driver.find_element_by_css_selector(alert_message_correct_login).text
