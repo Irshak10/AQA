@@ -6,7 +6,7 @@ login = LoginPage(webdriver)
 
 login.setup()
 login.enter_username_false()
-login.enter_password_false()
+login.enter_password_true()
 login.click_login()
 login.invalid_message_check()
 login.teardown()

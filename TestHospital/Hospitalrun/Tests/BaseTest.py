@@ -1,20 +1,16 @@
-from Hospitalrun.Pages.BasePage import test_site
-from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
-import pytest
+from selenium import webdriver
+from Hospitalrun.Pages.BasePage import test_site
 
 
-@pytest.fixture()
 def setup():
     driver = webdriver.Chrome(ChromeDriverManager().install())
     driver.implicitly_wait(10)
     driver.maximize_window()
     driver.get(test_site)
     print("Setup is Done")
-    yield
-    driver.close()
-    driver.quit()
+
+
+def teardown():
+    webdriver.Chrome.quit(ChromeDriverManager)
     print("Teardown is done")
-
-
-
