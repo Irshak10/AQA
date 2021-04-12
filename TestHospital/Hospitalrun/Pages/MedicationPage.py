@@ -63,14 +63,13 @@ class MedicationPage(BasePage):
 
     def create_new_medication(self):
         # Patient field
-        self.driver.implicitly_wait(5)
+        self.driver.implicitly_wait(10)
         self.driver.find_element(By.ID, patient_field_id).click()
         self.driver.find_element(By.ID, patient_field_id).send_keys(patient_test_name)
 
         self.driver.find_element(By.ID, patient_field_id).click()
         self.driver.find_element(By.ID, patient_field_id).send_keys(Keys.BACKSPACE)
-        self.driver.find_element(By.ID, patient_field_id).click()
-        WebDriverWait(self.driver, 10).until(EC.visibility_of_all_elements_located((By.XPATH, patient_choose_xpath)))
+        WebDriverWait(self.driver, 10).until(EC.element_selection_state_to_be(By.XPATH, patient_choose_xpath))
         self.driver.find_element(By.XPATH, patient_choose_xpath).click()
 
         # Visit field
