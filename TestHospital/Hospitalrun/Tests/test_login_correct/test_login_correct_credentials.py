@@ -1,6 +1,7 @@
 from selenium import webdriver
 from Hospitalrun.Pages.LoginPage import LoginPage
-import pickle
+import time
+
 
 login = LoginPage(webdriver)
 
@@ -8,9 +9,10 @@ login.setup()
 login.enter_username_true()
 login.enter_password_true()
 login.click_login()
-login.save_cookies()
-
 login.login_check()
+
+time.sleep(10)
+login.save_cookies()
 login.teardown()
 
 

@@ -11,4 +11,4 @@ login.click_login()
 login.invalid_message_check()
 login.teardown()
 
-print("Correct Login Test Completed")
+print("Invalid Login Test Completed")

@@ -30,8 +30,8 @@ class BasePage(object):
         print('The cookies are saved')
 
     def load_cookies(self):
-        for cookie in pickle.load(open("correct_cookies", "rb")):
-            self.driver.add_cookie(cookie)
+        for self.cookie in pickle.load(open("correct_cookies", "rb")):
+            self.driver.add_cookie(self.cookie)
         self.driver.refresh()
         print("The cookies are loaded")
 
