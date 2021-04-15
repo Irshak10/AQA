@@ -1,4 +1,4 @@
-from Hospitalrun.Pages.BasePage import *
+from Pages.BasePage import *
 from selenium.webdriver.common.by import By
 
 

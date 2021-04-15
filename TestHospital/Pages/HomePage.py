@@ -1,4 +1,4 @@
-from Hospitalrun.Pages.BasePage import BasePage
+from Pages.BasePage import BasePage
 
 
 # Locators, Home page objects
