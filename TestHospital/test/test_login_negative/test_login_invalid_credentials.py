@@ -1,16 +1,13 @@
-from selenium import webdriver
 from Pages.LoginPage import LoginPage
 
 
-def test_invalid_login():
+def test_invalid_login(setup):
 
-    login = LoginPage(webdriver)
+    login = LoginPage(setup)
 
-    # login.setup()
     login.enter_username_false()
     login.enter_password_true()
     login.click_login()
     login.invalid_message_check()
-    # login.teardown()
 
     print("Correct Login Test Completed")

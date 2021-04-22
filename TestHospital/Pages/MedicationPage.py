@@ -1,4 +1,4 @@
-from Pages.BasePage import BasePage
+from Pages.LoginPage import LoginPage
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -33,7 +33,7 @@ ok_button = "/html/body/div[1]/div[2]/div/div/div/div[3]/button"
 page_check_xpath = "/html/body/div[1]/div/div[1]/div[1]/h1"
 
 
-class MedicationPage(BasePage):
+class MedicationPage(LoginPage):
 
     def click_medications(self):
         self.driver.find_element_by_id(medication_button_id).click()

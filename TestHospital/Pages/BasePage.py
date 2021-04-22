@@ -1,6 +1,3 @@
-from selenium.webdriver.chrome.webdriver import WebDriver
-from webdriver_manager.chrome import ChromeDriverManager
-from selenium import webdriver
 # import pickle
 
 
@@ -15,18 +12,6 @@ class BasePage(object):
 
     def __init__(self, driver):
         self.driver = driver
-
-    def setup(self):
-        self.driver: WebDriver = webdriver.Chrome(executable_path=ChromeDriverManager().install())
-        self.driver.implicitly_wait(10)
-        self.driver.maximize_window()
-        self.driver.get(test_site)
-        print("Setup is Done")
-
-    def teardown(self):
-        self.driver.close()
-        self.driver.quit()
-        print("Teardown is done")
 
     # def save_cookies(self):
     #     pickle.dump(self.driver.get_cookies(), open("correct_cookies", "wb"))
