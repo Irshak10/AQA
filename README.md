@@ -4,9 +4,10 @@ Framework can execute tests at least in Google Chrome/Mozilla Firefox
 browsers.
 
 Structure:
-- All available locators are placed separately in the "Hospitalrun/Locators/locators.py" file.
-- Page Objects patterns are implemented. Used PageObjects are located in the "Hospitalrun/Pages" directory.
+- Page Objects patterns are implemented. Used PageObjects are located in the "Pages" directory.
+- The project has a BasePage (parent class) that inherits from other pages.
 - The specified tasks are executed in separate files that are located in the Tests folder "Hospitalrun/Tests.
 
 
-The project was created using the "Pycharm" framework (PyTest framework).
+The project was created using the "Pycharm" framewor.
+To start tests, just enter the "pytest" command into the terminal.
