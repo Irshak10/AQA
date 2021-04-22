@@ -9,5 +9,5 @@ Structure:
 - The specified tasks are executed in separate files that are located in the Tests folder "Hospitalrun/Tests.
 
 
-The project was created using the "Pycharm" framewor.
+The project was created using the "Pycharm" framework.
 To start tests, just enter the "pytest" command into the terminal.
