@@ -1,5 +1,4 @@
 from Pages.BasePage import BasePage
-from Pages.LoginPage import LoginPage
 
 
 # Locators, Home page objects
@@ -8,7 +7,7 @@ logout_link_text = "Logout"
 logout_check_text = "h2.form-signin-heading"
 
 
-class HomePage(LoginPage):
+class HomePage(BasePage):
 
     def click_setting(self):
         print(type(self.driver), self.driver)

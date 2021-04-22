@@ -1,10 +1,11 @@
-from Pages.LoginPage import LoginPage
+from Pages.BasePage import BasePage
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.select import Select
 import random
+import time
 
 
 # Locators, Medication Page object
@@ -16,24 +17,25 @@ medication_new_request_button_link_text = "New Request"
 medication_return_button_link_text = "Return Medication"
 
 # New Medication Request
-patient_field_id = "patientTypeAhead-ember2300"
+patient_field_id = "patientTypeAhead-ember1269"
 patient_test_name = "Test Patient"
-patient_choose_xpath = "/html/body/div[1]/div/div[2]/div/div/div[1]/form/div[1]/div[1]/div/span/div/div/div[6]/strong"
-visit_id = "visit-ember2345"
-medication_text_field = "inventoryItemTypeAhead-ember2367"
+patient_choose_xpath = "/html/body/div[1]/div/div[2]/div/div/div[1]/form/div[1]/div[1]/div/span/div/div/div[4]"
+
+visit_id = "visit-ember1314"
+medication_text_field = "inventoryItemTypeAhead-ember1336"
 medication_choose_xpath = "/html/body/div[1]/div/div[2]/div/div/div[1]/form/div[2]/div/span/div/div/div[2]/strong"
 medication_test_text = "Pramoxine"
-prescription_field_id = "prescription-ember2399"
+prescription_field_id = "prescription-ember1368"
 prescription_test_text = "Testing prescription"
-data = "display_prescriptionDate-ember2422"
-quantity_field_id = "quantity-ember2441"
-refills_field_id = "refills-ember2448"
+data = "display_prescriptionDate-ember1391"
+quantity_field_id = "quantity-ember1410"
+refills_field_id = "refills-ember1417"
 add_button_xpath = "/html/body/div[1]/div/div[2]/div/div/div[2]/button[2]"
 ok_button = "/html/body/div[1]/div[2]/div/div/div/div[3]/button"
 page_check_xpath = "/html/body/div[1]/div/div[1]/div[1]/h1"
 
 
-class MedicationPage(LoginPage):
+class MedicationPage(BasePage):
 
     def click_medications(self):
         self.driver.find_element_by_id(medication_button_id).click()
@@ -63,18 +65,18 @@ class MedicationPage(LoginPage):
 
     def create_new_medication(self):
         # Patient field
-        self.driver.implicitly_wait(10)
-        self.driver.find_element(By.ID, patient_field_id).click()
         self.driver.find_element(By.ID, patient_field_id).send_keys(patient_test_name)
-
-        self.driver.find_element(By.ID, patient_field_id).click()
+        time.sleep(5)
         self.driver.find_element(By.ID, patient_field_id).send_keys(Keys.BACKSPACE)
-        WebDriverWait(self.driver, 10).until(EC.element_selection_state_to_be(By.XPATH, patient_choose_xpath))
+        time.sleep(3)
+        # WebDriverWait(self.driver, 5).until(EC.element_to_be_clickable((By.XPATH, patient_choose_xpath)))
         self.driver.find_element(By.XPATH, patient_choose_xpath).click()
 
         # Visit field
         visit = self.driver.find_element(By.ID, visit_id)
         visit.click()
+        time.sleep(2)
+        # WebDriverWait(self.driver, 5).until(EC.element_to_be_selected(By.ID, visit_id))
         Select(visit).select_by_index(2)
 
         # Medication field
